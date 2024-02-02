@@ -7,6 +7,7 @@ services:
       - .env
     depends_on:
       - db
+      - selenium
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -20,11 +21,11 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
+    networks:
+      - my_network
 
   selenium:
     image: selenium/standalone-chrome:latest
-    depends_on:
-      - parser
     ports:
       - "4444:4444"
       - "5900:5900"

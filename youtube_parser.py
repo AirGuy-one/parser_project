@@ -13,7 +13,7 @@ def main():
 
     channels = [
         "https://www.youtube.com/@raily",
-        #"https://www.youtube.com/@adorplayer",
+        "https://www.youtube.com/@adorplayer",
         # "https://www.youtube.com/@soderlingoc",
         # "https://www.youtube.com/@sodyan",
         # "https://www.youtube.com/@restlgamer",
@@ -29,7 +29,7 @@ def main():
         print(video_data)
         youtube_parser.insert_data_to_db(video_data, conn, cursor)
 
-    youtube_parser.cleanup()
+    #youtube_parser.cleanup()
     #cursor.close()
     #conn.close()
 
