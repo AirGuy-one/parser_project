@@ -8,10 +8,6 @@ services:
     depends_on:
       - db
       - selenium
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - my_network
 
   db:
     image: postgres:latest
@@ -21,19 +17,17 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
-    networks:
-      - my_network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   selenium:
     image: selenium/standalone-chrome:latest
+    shm_size: 2g
+    environment:
+      - VNC_NO_PASSWORD=1
     ports:
       - "4444:4444"
       - "5900:5900"
-    networks:
-      - my_network
 
 volumes:
   postgres_data:
-
-networks:
-  my_network:
