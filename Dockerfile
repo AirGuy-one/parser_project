@@ -4,9 +4,7 @@ WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-RUN apt-get update &&  \
-    apt-get install -y iputils-ping nano rlwrap
 
 COPY . .
 
-CMD ["tail", "-f", "/dev/null"]
+CMD ["python", "youtube_parser.py"]

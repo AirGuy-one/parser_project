@@ -1,7 +1,12 @@
+import time
+
 from parser_entities import YouTubeParser
 
 
 def main():
+    # Waiting for selenium container to be loaded
+    time.sleep(10)
+
     youtube_parser = YouTubeParser()
 
     channels = [
